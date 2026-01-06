@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --sidebar-bg: #2c3e50; /* Dark Navy */
+    --sidebar-text: #ffffff;
+    --main-bg: #ffffff;
+    --main-text: #333333;
+    --accent-color: #3498db; /* Brighter Blue for accents */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #e0e0e0; /* Background outside the paper */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main A4 Container */
+.resume-container {
+    display: flex;
+    width: 210mm;
+    min-height: 297mm; /* A4 height */
+    background: var(--main-bg);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* --- LEFT COLUMN (SIDEBAR) --- */
+.left-column {
+    width: 35%;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.profile-img-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.profile-img-container img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--sidebar-text);
+    object-fit: cover;
+}
+
+.left-column h3 {
+    text-transform: uppercase;
+    font-size: 12pt;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 9pt;
+    word-break: break-all;
+}
+
+.contact-item i {
+    width: 20px;
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+/* Sidebar Education & Skills */
+.edu-item {
+    margin-bottom: 15px;
+    font-size: 9pt;
+}
+
+.edu-item .year {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 8pt;
+}
+
+.edu-item .degree {
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.edu-item .school {
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.left-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-column li {
+    font-size: 9pt;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.left-column strong {
+    color: var(--accent-color);
+    display: block; /* Make skill categories sit on their own line */
+}
+
+/* --- RIGHT COLUMN (MAIN) --- */
+.right-column {
+    width: 65%;
+    padding: 40px 30px;
+    color: var(--main-text);
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 32pt;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--sidebar-bg);
+    line-height: 1;
+}
+
+.role {
+    font-size: 12pt;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.main-section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 16pt;
+    text-transform: uppercase;
+    color: var(--sidebar-bg);
+    border-bottom: 2px solid var(--sidebar-bg);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Projects Layout */
+.job-item {
+    margin-bottom: 20px;
+}
+
+.job-header h3 {
+    margin: 0;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #000;
+}
+
+.tech-stack {
+    font-size: 9pt;
+    color: var(--accent-color);
+    font-style: italic;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.right-column ul {
+    margin-top: 5px;
+    padding-left: 18px;
+}
+
+.right-column li {
+    font-size: 10pt;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+/* Print Button */
+.print-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.print-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- PRINT SETTINGS --- */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    
+    .resume-container {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+    }
+
+    .print-btn {
+        display: none;
+    }
+
+    /* Ensures background colors print correctly */
+    .left-column {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background-color: #2c3e50 !important;
+    }
+}
